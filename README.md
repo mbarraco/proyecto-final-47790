@@ -3,7 +3,7 @@
 ## Configuración inicial del proyecto
 
 0. Instalar `django`:  `pip install django`
-1. Crear carpeta para nuestro repositorio, yo elegí nombrarla: "ProyectoCoder"
+1. Crear carpeta para nuestro repositorio, yo elegí nombrarla: "proyecto-final-47790"
 2. dentro de esa carpeta: `django-admin startproject ProyectoFinal`. Este comando dejará creada una nueva carpeta `ProyectoFinal` con una
 estructura como esta:
 ```bash
