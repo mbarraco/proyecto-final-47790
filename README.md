@@ -51,7 +51,7 @@ copiar y pegar en cualquier browser: `http://127.0.0.1:8000/` y comprobar que el
 
 1. Checkear que nuestro proyecto tenga 1 archivo `urls.py` en el directorio `ProyectoCoder/`
 2. Crear un archivo exactamente igual pero en el directorio `AppCoder`
-3. Modificar el nuevo archivo `AppCoder/urls.py` para que contenga una ruta llamada `cursos`
+3. Modificar el nuevo archivo `AppCoder/urls.py` para que contenga una ruta llamada `cursos`: ```path("inicio/", inicio_view),```
 4. Crear una función para "hacerse cargo" de los pedidos en la ruta `cursos`, la llamaremos `cursos_view`
 5. Registrar las rutas definidas por el archivo `AppCoder/urls.py` en el archivo `urls.py` general del proyecto: `ProyectoCoder/urls.py`
 6. Checkear que la ruta funcione entrando a:  `http://127.0.0.1:8000/cursos`
