@@ -12,7 +12,7 @@ drwxr-xr-x@ 8 marianobarraco  staff   256B Sep  3 09:26 ProyectoFinal  # <--- di
 -rw-r--r--@ 1 marianobarraco  staff     0B Sep  3 09:28 db.sqlite3
 -rwxr-xr-x@ 1 marianobarraco  staff   669B Sep  3 09:25 manage.py
 ```
-1. Dentro de la carpeta `ProyectoCoder/ProyectoFinal/ProyectoFinal` vamos a correr el comando `python manage.py startapp AppCoder` lo
+3. Dentro de la carpeta `proyecto-final-47790/ProyectoFinal/ProyectoFinal` vamos a correr el comando `python manage.py startapp AppCoder` lo
 cual nos dejará en este estado
 ```bash
 # directorio: ProyectoCoder/ProyectoFinal
@@ -21,8 +21,8 @@ drwxr-xr-x@ 8 marianobarraco  staff   256B Sep  3 09:26 ProyectoFinal
 -rw-r--r--@ 1 marianobarraco  staff     0B Sep  3 09:28 db.sqlite3
 -rwxr-xr-x@ 1 marianobarraco  staff   669B Sep  3 09:25 manage.py
 ```
-2. Registrar la aplicacion en `ProyectoFinal/settings.py`
-3. Probamos que nuestro servidor web funcione correctamente, para ello vamos a correr el siguiente comando `python manage.py runserver` y comprobaeremos de 2 maneras: (i) observar la respuesta en la consola y (ii)en el browser (por ejemplo _Google Chrome_):
+4. Registrar la aplicacion en `ProyectoFinal/settings.py`
+5. Probamos que nuestro servidor web funcione correctamente, para ello vamos a correr el siguiente comando `python manage.py runserver` y comprobaeremos de 2 maneras: (i) observar la respuesta en la consola y (ii)en el browser (por ejemplo _Google Chrome_):
 
 ```bash
 # directorio: ProyectoCoder/ProyectoFinal
