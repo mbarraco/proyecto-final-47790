@@ -17,19 +17,21 @@ def xx_cursos_view(xx):
 
 
 def cursos_view(xx):
-    nom = "Nicolas"
-    ap = "Perez"
+    nombre = "Mariano Manuel"
+    apellido = "Barracovich"
+    diccionario = {
+        'nombre': nombre,
+        'apellido': apellido,
+        "nacionalidad": "argentino"
+    }  # Para enviar al contexto
 
-    diccionario = {'nombre': nom, 'apellido': ap}  # Para enviar al contexto
 
-    # Assuming 'template1.html' is in the correct directory.
-    with open("/Users/marianobarraco/code/proyecto-final-47790/ProyectoFinal-2/AppCoder/templates/AppCoder/padre.html") as miHtml:
-        plantilla = Template(miHtml.read())  # Se carga en memoria nuestro documento, template1
+    ruta = "/Users/marianobarraco/code/proyecto-final-47790/ProyectoFinal-2/AppCoder/templates/AppCoder/padre.html"
+    mi_archivo = open(ruta, "r")
 
-    # Crear el contexto con el diccionario
-    miContexto = Context(diccionario)  # Le doy al contexto mi nombre y apellido
-
-    # Renderizar la plantilla con el contexto
-    documento = plantilla.render(miContexto)  # Aqui renderizamos la plantilla en documento
+    # "Método django - versión 1"
+    plantilla = Template(mi_archivo.read())  # Se carga en memoria nuestro documento, template1
+    contexto = Context(diccionario)  # Le doy al contexto mi nombre y apellido
+    documento = plantilla.render(contexto)  # Aqui renderizamos la plantilla en documento
 
     return HttpResponse(documento)
