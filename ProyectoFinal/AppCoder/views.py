@@ -9,3 +9,4 @@ def inicio_view(xx):
 def cursos_view(xx):
     # return HttpResponse("Aquí voy a mostrar mis cursos")
     return render(xx, "AppCoder/padre.html")
+    
