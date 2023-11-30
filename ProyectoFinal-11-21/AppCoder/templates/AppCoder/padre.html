@@ -12,5 +12,20 @@
   <p style="color: red">Mi nombre es: {{ nombre }}</p>
   <p style="color: green">Mi apellido es: {{ apellido }}</p>
   <p style="color: blue">Mi nacionalidad es: {{ nacionalidad }}</p>
+  <p style="color: blue">Pasé por el servidor: {{ hora }}</p>
+  <p>
+    {% for ciudad in ciudades_preferidas %}
+        {{ ciudad }} <br>
+    {% endfor %}
+  </p>
+  <p>
+    {% for ciudad in ciudades_preferidas %}
+        {% if ciudad == "Lima" %}
+          <p style="color: green">*  {{ ciudad }}</p>
+        {% else %}
+          <p style="color: blue">*  {{ ciudad }}</p>
+        {% endif %}
+    {% endfor %}
+  </p>
 </body>
 </html>
