@@ -75,22 +75,3 @@ def profesores_view(xx):
     }  # Para enviar al contexto
     return render(xx, "AppCoder/padre.html", diccionario)
 
-
-
-# Tomado de la clase dad por Esteban
-def crear_clientes_varios(request):
-    p1 = models.Pais(nombre="Paraguay")
-    p2 = models.Pais(nombre="México")
-    p3 = models.Pais(nombre="El Salvador")
-    p1.save()
-    p2.save()
-    p3.save()
-    c1 = models.Cliente(nombre="Almendra", apellido="Ruiseñor", nacimiento=date(2015, 1, 1), pais_origen=p1)
-    c2 = models.Cliente(nombre="Giordana", apellido="Tapello", nacimiento=date(2005, 2, 2), pais_origen=p2)
-    c3 = models.Cliente(nombre="Macarena", apellido="Lito", nacimiento=date(1990, 1, 1), pais_origen=p3)
-    c4 = models.Cliente(nombre="Jhiordana", apellido="Perez", nacimiento=date(2005, 1, 1), pais_origen=None)
-    c1.save()
-    c2.save()
-    c3.save()
-    c4.save()
-    return redirect("AppCoder:inicio")
