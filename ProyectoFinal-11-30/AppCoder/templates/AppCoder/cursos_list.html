@@ -1,0 +1,19 @@
+{% extends "AppCoder/padre.html" %}
+
+
+{% block contenidoQueCambia %}
+Aquí va la lista de cursos!
+
+
+<!-- {{ cursos }} -->
+
+{% if cursos %}
+<ul>
+    {% for curso in cursos %}
+    <li>{{ curso.curso }} ({{ curso.camada }})</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% endblock %}
