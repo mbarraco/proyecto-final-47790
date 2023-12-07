@@ -1,13 +1,77 @@
-
 {% extends "AppCoder/padre.html" %}
 
-
 {% block contenidoQueCambia %}
-    <body style="background-color: green;">
-        <form action="/AppCoder/cursos/buscar" method="POST">
-            {% csrf_token %}
+<style>
+    .form-container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+        width: 60%;
+        margin: 60px auto;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #4CAF50;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+    }
+
+    th {
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    td {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    input[type="text"], input[type="number"], input[type="email"], select {
+        width: 90%;
+        padding: 10px;
+        margin: 5px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Buscar Curso</h2>
+    <form action="/AppCoder/cursos/buscar" method="POST">
+        {% csrf_token %}
+        <table>
             {{ form.as_table }}
-            <input type="submit" value="Guardar">
-        </form>
-    </body>
+        </table>
+        <input type="submit" value="Guardar">
+    </form>
+</div>
 {% endblock %}

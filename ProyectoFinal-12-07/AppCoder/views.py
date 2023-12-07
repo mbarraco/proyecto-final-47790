@@ -200,8 +200,10 @@ def login_view(request):
             informacion = formulario.cleaned_data
             usuario = informacion["username"]
             password = informacion["password"]
+
             modelo = authenticate(username=usuario, password=password)
             login(request, modelo)
+
             return render(
                 request,
                 "AppCoder/inicio.html",

@@ -22,19 +22,32 @@
             <div class="container">
                 <a class="navbar-brand" href="/AppCoder/inicio/">Inicio</a>
                 <a class="navbar-brand" href="/AppCoder/cursos/">Crear Curso</a>
+                <a class="navbar-brand" href="/AppCoder/cursos/buscar">Buscar Curso</a>
                 <a class="navbar-brand" href="/AppCoder/cursos/todos">Todos los cursos</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:curso-list' %}">Lista de cursos (CBV)</a>
                 <a class="navbar-brand" href="/AppCoder/profesores/">Profesores</a>
                 <a class="navbar-brand" href="/AppCoder/profesores-lista/">Todos los profesores</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:curso-list' %}">Lista de cursos (CBV)</a>
+
+
+
                 {% if user.is_authenticated %}
-                    <span class="navbar-text">
-                        {{ user.username }}
-                    </span>
+                    <span class="navbar-text">{{ user.username }}</span>
                     <a class="navbar-brand" href="{% url 'AppCoder:logout' %}">Logout</a>
                 {% else %}
                     <a class="navbar-brand" href="{% url 'AppCoder:login' %}">Login</a>
                     <a class="navbar-brand" href="{% url 'AppCoder:registro' %}">Registrar usuario</a>
                 {% endif %}
+
+
+
+
+
+
+
+
+
+
+
 
                 <!-- <a class="btn btn-primary" href="#signup">Sign Up</a> -->
             </div>
