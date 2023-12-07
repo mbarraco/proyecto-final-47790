@@ -3,10 +3,9 @@ from django.http import HttpResponse
 
 
 def inicio_view(xx):
-    return HttpResponse("Bienvenidos!!!!!!!!!!!!!!")
+    return re
 
 
 def cursos_view(xx):
     # return HttpResponse("Aquí voy a mostrar mis cursos")
     return render(xx, "AppCoder/padre.html")
-    

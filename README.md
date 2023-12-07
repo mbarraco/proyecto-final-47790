@@ -64,6 +64,26 @@ copiar y pegar en cualquier browser: `http://127.0.0.1:8000/` y comprobar que el
     `http://127.0.0.1:8000/AppCoder/cursos`
 
 
+# Modelos
+
+1. en el archivo `AppCoder/models.py` crear (por ejemplo) 2 modelos:
+    ```python
+    from django.db import models
+
+
+    class Profesor(models.Model):
+        nombre = models.CharField(max_length=30)
+        email = models.EmailField()
+
+    class Comision(models.Model):
+        numero = models.IntegerField()
+    ```
+2. Ejecutar los comandos de migraciones:
+   ```bash
+   >> python manage.py makemigrations
+   >> python manage.py migrate
+3. Crear modelos utilizando una `view`
+
 ## Entregar contenido HTML desde plantillas (templates)
 
 **Consejo**: las plantillas se escriben en lenguaje **HTML**, no vamos a profundizar sobre este lenguaje, por lo tanto nuestra tarea será simplemente manipularlo.
@@ -129,9 +149,9 @@ esta es la manera de informarle a `Django` que queremos que utilice los template
    ```
 
 ### Templates con CSS ("mejorando nuestros templates")
-1. Crear una carpeta llamada `static` en nuestra app: `ProyectoCoder/ProyectoFinal/AppCoder/static`
+1. Crear una carpeta llamada `static` en nuestra app: `/AppCoder/static/AppCoder`
 2. Descargarse el archivo `.zip` con contenido estático de: [este link](https://startbootstrap.com/previews/landing-page)
-3. Descomprimir y guardar todo el contenido en la carpeta `static`
+3. Descomprimir y guardar todo el contenido en la carpeta `static/AppCoder`
 4. Creamos un archivo que se llame `inicio.html` en la carpeta de templates. El contenido de este archivo tiene que ser el mismo que en `index.html` del archivo `.zip` que descomprimimos.
 5. Vamos a elminar todo el contenido dede la línea 74 `<!-- Icons Grid-->` hasta la línea 201 `</section>`
 6. Le agregamos 1 línea y modificamos otra:
@@ -334,6 +354,8 @@ class Profesor(models.Model):
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+3. Podemos crear modelos desde una vista: ver `AppCoder.views.crear_profesores_varios`
 
 ## CRUD
 

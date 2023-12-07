@@ -1,0 +1,13 @@
+{% extends "AppCoder/padre.html" %}
+
+
+{% block contenidoQueCambia %}
+<h4>Este es el contenido de Cursos!</h4>
+
+{{ nombre }}
+<h1> Detalle del curso </h1>
+
+{{curso.curso}} - camada: {{ curso.camada }} ?
+
+<a href="{% url 'AppCoder:curso-list' %}">Regresar</a>
+{% endblock %}

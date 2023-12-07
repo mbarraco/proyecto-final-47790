@@ -1,0 +1,13 @@
+
+{% extends "AppCoder/padre.html" %}
+
+
+{% block contenidoQueCambia %}
+    <body style="background-color: green;">
+        <form action="/AppCoder/cursos/buscar" method="POST">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <input type="submit" value="Guardar">
+        </form>
+    </body>
+{% endblock %}
