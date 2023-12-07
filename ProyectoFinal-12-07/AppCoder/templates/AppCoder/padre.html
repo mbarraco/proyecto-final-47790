@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>Proyecto final</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -21,12 +21,22 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/AppCoder/inicio/">Inicio</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:inicio' %}">Inicio (by name)</a>
-                <a class="navbar-brand" href="/AppCoder/cursos/">Cursos</a>
-                <a class="navbar-brand" href="{% url 'AppCoder:cursos' %}">Cursos (by name)</a>
+                <a class="navbar-brand" href="/AppCoder/cursos/">Crear Curso</a>
                 <a class="navbar-brand" href="/AppCoder/cursos/todos">Todos los cursos</a>
                 <a class="navbar-brand" href="/AppCoder/profesores/">Profesores</a>
                 <a class="navbar-brand" href="/AppCoder/profesores-lista/">Todos los profesores</a>
+                <a class="navbar-brand" href="{% url 'AppCoder:curso-list' %}">Lista de cursos (CBV)</a>
+                {% if user.is_authenticated %}
+                    <span class="navbar-text">
+                        {{ user.username }}
+                    </span>
+                    <a class="navbar-brand" href="{% url 'AppCoder:logout' %}">Logout</a>
+                {% else %}
+                    <a class="navbar-brand" href="{% url 'AppCoder:login' %}">Login</a>
+                    <a class="navbar-brand" href="{% url 'AppCoder:registro' %}">Registrar usuario</a>
+                {% endif %}
+
+                <!-- <a class="btn btn-primary" href="#signup">Sign Up</a> -->
             </div>
         </nav>
         <!-- Masthead-->
@@ -36,33 +46,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">App Coder!</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
+                            <h1 class="mb-5">Proyecto Final Python + Django</h1>
                         </div>
                     </div>
                 </div>

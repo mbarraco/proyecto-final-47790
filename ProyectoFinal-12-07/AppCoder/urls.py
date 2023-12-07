@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 
 from AppCoder.views import (
     cursos_view,
@@ -16,6 +17,9 @@ from AppCoder.views import (
     CursoDeleteView,
     CursoListView,
     CursoUpdateView,
+    ### LOGIN
+    login_view,
+    registro_view,
     )
 
 
@@ -33,11 +37,13 @@ urlpatterns = [
     path("profesores-eliminar/<profesor_email>/", profesores_crud_delete_view),
     path("profesores-editar/<profesor_email>/", profesores_crud_update_view),
     ###### CBV
-    ### CBV
     path("curso/list", CursoListView.as_view(), name="curso-list"),
     path("curso/new", CursoCreateView.as_view(), name="curso-create"),
     path("curso/<pk>", CursoDetail.as_view(), name="curso-detail"),
     path("curso/<pk>/update", CursoUpdateView.as_view(), name="curso-update"),
     path("curso/<pk>/delete", CursoDeleteView.as_view(), name="curso-delete"),
-
+    ###### LOGIN
+    path("registro", registro_view, name="registro"),
+    path("login", login_view, name="login"),
+    path("logout", LogoutView.as_view(template_name="AppCoder/logout.html"), name="logout"),
 ]

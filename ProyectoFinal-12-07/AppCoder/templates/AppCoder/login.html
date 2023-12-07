@@ -1,0 +1,24 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Login</h2>
+<body style="background-color: rgb(134, 185, 245);">
+    <form action="/AppCoder/login" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if form.non_field_errors %}
+            <div style="color: red;">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
+        <input type="submit" value="Iniciar sesión">
+    </form>
+</body>
+
+{% endblock %}
