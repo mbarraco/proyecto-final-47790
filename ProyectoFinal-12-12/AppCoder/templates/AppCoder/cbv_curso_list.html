@@ -1,0 +1,32 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; max-width: 600px; margin: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h4 style="color: #4a90e2; border-bottom: 2px solid #4a90e2; padding-bottom: 10px;">Lista de cursos</h4>
+
+    <!-- Button for "Create Curso" -->
+    <button style="background-color: #4CAF50; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">
+        <a href="{% url 'AppCoder:curso-create' %}" style="color: white;">Nuevo</a>
+    </button>
+
+    <div style="margin-top: 20px;">
+    {% for curso in cursos %}
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h6 style="color: #333; background-color: #eaf2ff; padding: 8px; border-radius: 5px; margin-bottom: 10px; flex-grow: 1;">
+                {{curso.curso}} ({{curso.camada}})
+            </h6>
+            <div>
+                <button style="background-color: #4a90e2; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+                    <a href="{% url 'AppCoder:curso-update' curso.pk %}" style="color: white;">Editar</a>
+                </button>
+                <button style="background-color:  #FF5733; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+                    <a href="{% url 'AppCoder:curso-delete' curso.pk %}" style="color: white;">Eliminar</a>
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

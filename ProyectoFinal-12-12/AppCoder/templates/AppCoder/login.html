@@ -1,0 +1,16 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Login</h2>
+<body style="background-color: rgb(134, 185, 245);">
+    <form action="/AppCoder/login" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Iniciar sesión">
+    </form>
+</body>
+
+{% endblock %}
