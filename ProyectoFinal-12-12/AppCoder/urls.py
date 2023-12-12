@@ -20,6 +20,8 @@ from AppCoder.views import (
     ### LOGIN
     login_view,
     registro_view,
+    ### EDITAR PERFIL
+    editar_perfil_view,
     )
 
 
@@ -46,4 +48,7 @@ urlpatterns = [
     path("registro", registro_view, name="registro"),
     path("login", login_view, name="login"),
     path("logout", LogoutView.as_view(template_name="AppCoder/logout.html"), name="logout"),
+    ###### EDITAR USUARIO
+    path("editar-perfil", editar_perfil_view, name="editar-perfil")
+
 ]

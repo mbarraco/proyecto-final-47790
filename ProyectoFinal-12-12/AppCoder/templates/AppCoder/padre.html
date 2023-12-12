@@ -31,8 +31,9 @@
 
 
                 {% if user.is_authenticated %}
-                    <span class="navbar-text">{{ user.username }}</span>
-                    <a class="navbar-brand" href="{% url 'AppCoder:logout' %}">Logout</a>
+                    <a class="navbar-text" href="{% url 'AppCoder:editar-perfil' %}">editar perfil: {{ user.username }}</a>
+                    <img src="{{ avatar_url }}" style="height: 40px; width: auto; border-radius: 50%; vertical-align: middle;"/>
+                    <a class="navbar-text" href="{% url 'AppCoder:logout' %}">Logout</a>
                 {% else %}
                     <a class="navbar-brand" href="{% url 'AppCoder:login' %}">Login</a>
                     <a class="navbar-brand" href="{% url 'AppCoder:registro' %}">Registrar usuario</a>

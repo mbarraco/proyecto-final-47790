@@ -4,14 +4,22 @@ from django.shortcuts import redirect, render
 
 from datetime import datetime
 from . import models
-from .models import Curso, Profesor
+from .models import Curso, Profesor, Avatar
 
 from .forms import CursoFormulario, CursoBuscarFormulario, ProfesorFormulario
 
 from django.contrib.auth.decorators import login_required
 
 def inicio_view(request):
-    return render(request, "AppCoder/inicio.html")
+    if request.user.is_authenticated:
+        usuario = request.user
+        avatar = Avatar.objects.filter(user=usuario).first()
+        avatar_url = avatar.imagen.url if avatar is not None else ""
+    else:
+        breakpoint()
+        avatar_url = ""
+
+    return render(request, "AppCoder/inicio.html", context={"avatar_url": avatar_url})
 
 
 def cursos_buscar_view(request):
@@ -252,3 +260,43 @@ def registro_view(request):
                 "AppCoder/registro.html",
                 {"form": formulario}
             )
+
+#################### CLASE 24:  Editar perfil #########################################
+
+@login_required
+def editar_perfil_view(request):
+
+    usuario = request.user
+    avatar = Avatar.objects.filter(user=usuario).first()
+    avatar_url = avatar.imagen.url if avatar is not None else ""
+
+
+    if request.method == "GET":
+
+
+        valores_iniciales = {
+            "email": usuario.email,
+            "first_name": usuario.first_name,
+            "last_name": usuario.last_name
+        }
+
+
+        formulario = UserEditionFormulario(initial=valores_iniciales)
+        return render(
+            request,
+            "AppCoder/editar_perfil.html",
+            context={"form": formulario, "usuario": usuario, "avatar_url": avatar_url}
+            )
+    else:
+        formulario = UserEditionFormulario(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+
+            usuario.email = informacion["email"]
+
+            usuario.set_password(informacion["password1"])
+
+            usuario.first_name = informacion["first_name"]
+            usuario.last_name = informacion["last_name"]
+            usuario.save()
+        return redirect("AppCoder:inicio")
