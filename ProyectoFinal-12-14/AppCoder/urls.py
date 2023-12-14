@@ -23,6 +23,8 @@ from AppCoder.views import (
     ### EDITAR PERFIL
     editar_perfil_view,
     crear_avatar_view,
+    ### INSTRAGRAM
+    mostrar_profile_view,
     )
 
 
@@ -52,4 +54,6 @@ urlpatterns = [
     ###### EDITAR USUARIO
     path("editar-perfil", editar_perfil_view, name="editar-perfil"),
     path("crear-avatar", crear_avatar_view, name="crear-avatar"),
+    ##### INSTRAGAM
+    path("profile/<user_id>", mostrar_profile_view, name="profile"),
 ]

@@ -13,10 +13,9 @@ from django.contrib.auth.decorators import login_required
 def inicio_view(request):
     if request.user.is_authenticated:
         usuario = request.user
-        avatar = Avatar.objects.filter(user=usuario).first()
+        avatar = Avatar.objects.filter(user=usuario).last()
         avatar_url = avatar.imagen.url if avatar is not None else ""
     else:
-        breakpoint()
         avatar_url = ""
 
     return render(request, "AppCoder/inicio.html", context={"avatar_url": avatar_url})
@@ -267,7 +266,7 @@ def registro_view(request):
 def editar_perfil_view(request):
 
     usuario = request.user
-    avatar = Avatar.objects.filter(user=usuario).first()
+    avatar = Avatar.objects.filter(user=usuario).last()
     avatar_url = avatar.imagen.url if avatar is not None else ""
 
 
@@ -320,5 +319,19 @@ def crear_avatar_view(request):
             informacion = formulario.cleaned_data
             modelo = Avatar(user=usuario, imagen=informacion["imagen"])
             modelo.save()
-            breakpoint()
             return redirect("AppCoder:inicio")
+
+#################### CLASE 25:  INSTRAGRAM #########################################
+
+from django.contrib.auth.models import User
+from .models import Post, Perfil
+
+def mostrar_profile_view(request, user_id):
+    user = User.objects.get(id=user_id)
+    todos_los_posts = Post.objects.filter(autor=user).all()
+    perfil = Perfil.objects.filter(usuario=user).first()
+    avatar = Avatar.objects.filter(user=user).first()
+    avatar_url = avatar.imagen.url if avatar is not None else ""
+    contexto = {"posts": todos_los_posts, "perfil": perfil, "avatar_url": avatar_url}
+
+    return render(request, "AppCoder/instagram_profile.html", context=contexto)

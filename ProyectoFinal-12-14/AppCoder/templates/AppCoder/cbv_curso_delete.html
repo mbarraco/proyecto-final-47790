@@ -1,0 +1,58 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .warning-message {
+        background-color: #ffcccb;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .warning-message h1 {
+        color: red;
+    }
+
+    .warning-message p {
+        font-size: 18px;
+    }
+
+    .submit-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="centered-container">
+    {{ nombre }}
+    <div class="warning-message">
+        <h1>Borrar Curso: {{curso.curso}}</h1>
+        <p>Estás seguro que deseas borrar el curso: <strong>{{curso.curso}}</strong> - camada: <strong>{{ curso.camada }}</strong>?</p>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar" class="submit-button">
+    </form>
+</div>
+
+{% endblock %}
