@@ -148,6 +148,7 @@ def profesores_crud_update_view(request, profesor_email):
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class CursoListView(LoginRequiredMixin, ListView):
@@ -161,12 +162,12 @@ class CursoDetail(LoginRequiredMixin, DetailView):
     template_name = "AppCoder/cbv_curso_detail.html"
 
 
-class CursoCreateView(LoginRequiredMixin, CreateView):
+class CursoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Curso
     template_name = "AppCoder/cbv_curso_create.html"
     success_url = reverse_lazy("AppCoder:curso-list")
     fields = ["curso", "camada"]
-
+    success_message = "Curso creado con éxito!" 
 
 class CursoUpdateView(LoginRequiredMixin, UpdateView):
     model = Curso
